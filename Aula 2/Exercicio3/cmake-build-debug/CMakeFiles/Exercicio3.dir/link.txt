@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/Exercicio3.dir/main.c.o CMakeFiles/Exercicio3.dir/nib.c.o  -o Exercicio3 

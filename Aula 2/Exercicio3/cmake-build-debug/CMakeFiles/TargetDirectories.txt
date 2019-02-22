@@ -1,0 +1,3 @@
+/home/risingfisan/Desktop/LI2/Aula 2/Exercicio3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/risingfisan/Desktop/LI2/Aula 2/Exercicio3/cmake-build-debug/CMakeFiles/Exercicio3.dir
+/home/risingfisan/Desktop/LI2/Aula 2/Exercicio3/cmake-build-debug/CMakeFiles/edit_cache.dir
