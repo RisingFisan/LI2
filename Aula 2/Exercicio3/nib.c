@@ -2,12 +2,40 @@
 #include <stdlib.h>
 #include <string.h>
 
+void formatNIB(char nib[]) {
+    int i = 0;
+    while(nib[i] != '\n' && nib[i]) {
+        if(nib[i] == ' ') {
+            for(int j = i; nib[j]; j++) {
+                nib[j] = nib[j + 1];
+            }
+        }
+        else i++;
+    }
+    nib[22] = '\0';
+}
+
+char * getAccount(char nib[]) {
+    static char nConta[12];
+    strncpy(nConta,nib + 8,11);
+    nConta[11] = '\0';
+    while(1) {
+        if(nConta[0] != '0' || !nConta[1]) break;
+        else {
+            for(int j = 0; nConta[j]; j++) {
+                nConta[j] = nConta[j + 1];
+            }
+        }
+    }
+    return nConta;
+}
+
 char * getBank(char nib[]) {
     static char bank[100];
     char *end;
-    char nBanco[4];
-    strncpy(nBanco, nib, 4);
-    switch (strtol(nBanco, &end, 10)) {
+    int nBanco;
+    sscanf(nib,"%4d",&nBanco);
+    switch (nBanco) {
         case 7:
             strcpy(bank, "Novo Banco");
             break;
