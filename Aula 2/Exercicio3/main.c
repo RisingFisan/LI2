@@ -5,7 +5,7 @@
 
 int main() {
     int exit = 0;
-    char nib[75];
+    char nib[22];
     while(!exit) {
         char opt, c;
         printf("------NIB------\n\n"
@@ -21,8 +21,7 @@ int main() {
         switch (opt) {
             case '1':
                 printf("\nIntroduza o seu NIB: ");
-                fgets(nib,75,stdin);
-                formatNIB(nib);
+                getNIB(nib);
                 printf("\nNIB introduzido com sucesso.\n");
                 break;
             case '2':;
