@@ -19,15 +19,11 @@ int main() {
         for(int j = 0; j < 26; j++) {
             if(freq[j] == i) {
                 freq[j]--;
-                putchar('*');
-            } else putchar(' ');
-            putchar(' ');
+                printf("* ")
+            } else printf("  ");
         }
         putchar('\n');
     }
-    for(int i = 'A'; i <= 'Z'; i++) {
-        putchar(i);
-        putchar(' ');
-    }
+    for(int i = 'A'; i <= 'Z'; i++) printf("%c ",i); // Imprime as letras abaixo do histograma.
     return 0;
 }
