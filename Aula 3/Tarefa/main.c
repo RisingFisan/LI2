@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int main() {
     char frase[1000];
@@ -7,10 +8,9 @@ int main() {
     int freq[26];
     for(int i = 0; i < 26; i++) freq[i] = 0;
     int freqMax = 0;
-    for(int i = 0; frase[i] != '\n' && frase[i]; i++) {
-        char c = frase[i];
-        if(c >= 'a' && c <= 'z') c -= ('a' - 'A');
-        if(c >= 'A' && c <= 'Z') {
+    for(int i = 0; frase[i]; i++) {
+        char c = toupper(frase[i]);
+        if(isalpha(c)) {
             int x = ++freq[(c - 'A')];
             if(x > freqMax) freqMax = x;
         }
