@@ -1,8 +1,9 @@
-typedef struct Tabuleiro {
+typedef struct Board {
     int linhas;
     int colunas;
-    char* caracteres[];
+    char** caracteres;
 } Board;
 
-void printBoard(Board a);
+void printBoard(Board a, int x);
 Board fillBoard(FILE* f);
+void saveBoard(Board a, FILE* f);

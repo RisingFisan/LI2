@@ -2,10 +2,11 @@
 #include "funcs.h"
 
 int main() {
-    FILE* f = fopen("tabuleiro.txt","r+");
-    Board a;
-    //a = fillBoard(f);
-    while(1) {
+    int quit = 0;
+    FILE* f = fopen("tabuleiro.txt","r");
+    Board a = fillBoard(f);
+    fclose(f);
+    while(!quit) {
         char opt,c;
         printf("***TABULEIRO***\n\n"
                "1. Ver tabuleiro.\n"
@@ -16,8 +17,33 @@ int main() {
         while((c = getchar()) != '\n');
         switch(opt) {
             case '1':
-
+                putchar('\n');
+                printBoard(a,0);
                 break;
+            case '2':
+                putchar('\n');
+                printBoard(a,1);
+                printf("\nIntroduza a posição do elemento que pretende alterar (coluna linha): ");
+                int x,y,ch;
+                scanf("%d %d",&x,&y);
+                printf("Qual o caracter que pretende colocar nesse quadrado (X ou O)? ");
+                while((ch = getchar()) != 'X' && ch != 'O');
+                while((c = getchar()) != '\n');
+                a.caracteres[y][x] = ch;
+                printf("\nCaracter colocado com sucesso!\n");
+                break;
+            case '3':
+                f = fopen("tabuleiro.txt","w");
+                saveBoard(a,f);
+                printf("\nAlterações guardadas com sucesso!\n");
+                break;
+            case '0':
+                quit = 1;
+                break;
+        }
+        if(!quit) {
+            printf("\nPrima ENTER para continuar...\n");
+            while((c = getchar()) != '\n' && c != EOF) {}
         }
     }
     return 0;
