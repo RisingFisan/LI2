@@ -3,14 +3,19 @@
 #include "funcs.h"
 
 void printBoard(Board a, int ruler) {
-    for(int i = 0; i < a.linhas; i++) {
-        for(int j = 0; j < a.colunas; j++) {
-            printf("%c ",a.caracteres[i][j]);
-        }
-        if(ruler) printf("%d",i);
+    putchar('\n');
+    if(ruler) {
+        printf("  ");
+        for (int i = 0; i < a.colunas; i++) printf("%d ", i);
         putchar('\n');
     }
-    if(ruler) for(int i = 0; i < a.colunas; i++) printf("%d ",i);
+    for(int i = 0; i < a.linhas; i++) {
+        if(ruler) printf("%d ",i);
+        for(int j = 0; j < a.colunas; j++) {
+            printf("%c ", a.caracteres[i][j]);
+        }
+        putchar('\n');
+    }
 }
 
 Board fillBoard(FILE* f) {

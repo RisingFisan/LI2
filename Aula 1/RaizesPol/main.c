@@ -12,6 +12,6 @@ int main() {
     scanf("%f %f %f",&a,&b,&c);
     x1 = (-1.0 * b + sqrt(pow(b,2) - 4.0* a * c)) / (2.0 * a);
     x2 = (-1.0 * b - sqrt(pow(b,2) - 4.0* a * c)) / (2.0 * a);
-    printf("raizes x1 = %f \ne x2 = %f \n",x1,x2);
+    printf("x1 = %f \nx2 = %f \n",x1,x2);
     return 0;
 }

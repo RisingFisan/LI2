@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include "funcs.h"
 
+#define FILEPATH "tabuleiro.txt"
+
 int main() {
     int quit = 0;
-    FILE* f = fopen("tabuleiro.txt","r");
+    FILE* f = fopen(FILEPATH,"r");
+    if(f == NULL) printf("X");
     Board a = fillBoard(f);
     fclose(f);
     while(!quit) {
@@ -33,7 +36,7 @@ int main() {
                 printf("\nCaracter colocado com sucesso!\n");
                 break;
             case '3':
-                f = fopen("tabuleiro.txt","w");
+                f = fopen(FILEPATH,"w");
                 saveBoard(a,f);
                 printf("\nAlterações guardadas com sucesso!\n");
                 break;
